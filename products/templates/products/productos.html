@@ -32,8 +32,8 @@
           <td>{{product.price}}</td>
           <td>{{product.stock}}</td>
           <td width="230">
-            <button class="btn btn-warning me-3" data-bs-toggle="modal" data-bs-target="#Agregar"><i class="bi bi-pencil-square"></i> Editar</button>
-            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i> Eliminar</button>
+            <a href="{% url 'editar' product.cod_product %}" class="btn btn-warning me-3"><i class="bi bi-pencil-square"></i> Editar</a>
+            <a href="{% url 'eliminar' product.cod_product %}" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Eliminar</a>
           </td>
         </tr>
         {% endfor %}
