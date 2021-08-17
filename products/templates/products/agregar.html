@@ -1,0 +1,65 @@
+{% extends 'products/layout.html' %}
+
+{% block title %}Agregar Producto{% endblock %}
+
+{% block content %}
+
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-7 col-xl-6 col-xxl-5 align-self-center">
+              <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                  {% if field.html_name == 'cod_product' %}
+                  <div class="mb-3 form-group">
+                    <label for="{{field.id_for_label}}" class="form-label">Codigo</label>
+                    <input type="{{field.html_name}}" class="form-control" name="{{field.html_name}}">
+                    <small class="form-text text-muted">
+                      Por favor, ingresa una descripcion.
+                    </small>
+                  </div>
+                  {% endif %}
+                  {% if field.html_name == 'description' %}
+                  <div class="mb-3 form-group">
+                    <label for="{{field.id_for_label}}" class="form-label">Descripcion</label>
+                    <input type="{{field.html_name}}" class="form-control" name="{{field.html_name}}">
+                    <small class="form-text text-muted">
+                      Por favor, ingresa una descripcion.
+                    </small>
+                  </div>
+                  {% endif %}
+                  {% if field.html_name == 'category' %}
+                  <div class="mb-3 form-group">
+                    <label for="{{field.id_for_label}}" class="form-label">Categoria</label>
+                    <input type="{{field.html_name}}" class="form-control" name="{{field.html_name}}">
+                    <small class="form-text text-muted">
+                      Por favor, ingresa una descripcion.
+                    </small>
+                  </div>
+                  {% endif %}
+                  {% if field.html_name == 'price' %}
+                  <div class="mb-3 form-group">
+                    <label for="{{field.id_for_label}}" class="form-label">Precio</label>
+                    <input type="{{field.html_name}}" class="form-control" name="{{field.html_name}}">
+                    <small class="form-text text-muted">
+                      Por favor, ingresa una descripcion.
+                    </small>
+                  </div>
+                  {% endif %}
+                  {% if field.html_name == 'stock' %}
+                  <div class="mb-3 form-group">
+                    <label for="{{field.id_for_label}}" class="form-label">Stock</label>
+                    <input type="{{field.html_name}}" class="form-control" name="{{field.html_name}}">
+                    <small class="form-text text-muted">
+                      Por favor, ingresa una descripcion.
+                    </small>
+                  </div>
+                  {% endif %}
+                {% endfor %}
+                <button type="submit" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Guardar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+{% endblock %}
