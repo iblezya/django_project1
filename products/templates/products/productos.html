@@ -1,0 +1,47 @@
+{% extends 'products/layout.html' %}
+
+{% block title %}Productos{% endblock %}
+
+{% block content %}
+<main>  
+  <section class="container-md">
+    <h1 class="my-3">Crud Django</h1>
+    <a href="{% url 'agregar' %}" class="btn btn-primary btn-lg">
+      <i class="bi bi-plus-circle-fill"></i> AGREGAR
+    </a>
+  </section>
+  
+  <section class="table-responsive container-md mt-3 mb-3">
+    <table class="table table-striped align-middle shadow">
+      <thead class="table-dark">
+        <tr>
+          <th>Codigo</th>
+          <th>Categoria</th>
+          <th>Descripcion</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="resultado">
+        {% for product in products %}
+        <tr>
+          <td>{{product.cod_product}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.category}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.stock}}</td>
+          <td width="230">
+            <button class="btn btn-warning me-3" data-bs-toggle="modal" data-bs-target="#Agregar"><i class="bi bi-pencil-square"></i> Editar</button>
+            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i> Eliminar</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+  </section>
+  
+</main>
+
+{% endblock %}
