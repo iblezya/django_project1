@@ -11,7 +11,7 @@ def CreateProduct(request):
     form = ProductsForm(request.POST)
     if form.is_valid():
       form.save()
-      return redirect('home')
+      return redirect('productos')
   else:
     form = ProductsForm()
   context = {'form' : form}
